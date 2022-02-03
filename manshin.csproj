@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -48,11 +48,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon 512.ico</ApplicationIcon>
+    <ApplicationIcon>favicon win.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DiffieHellman, Version=0.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Release\DiffieHellman.dll</HintPath>
+    </Reference>
+    <Reference Include="Org.Mentalis.Security, Version=1.0.13.715, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Release\Org.Mentalis.Security.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,8 +93,47 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tamir.SharpSSH, Version=1.1.1.13, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Release\Tamir.SharpSSH.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgeTip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgeTip.Designer.cs">
+      <DependentUpon>AgeTip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorfulProgressbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Developer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Developer.Designer.cs">
+      <DependentUpon>Developer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FastSpawn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FastSpawn.Designer.cs">
+      <DependentUpon>FastSpawn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FtpHelper.cs" />
+    <Compile Include="id.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="id.Designer.cs">
+      <DependentUpon>id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDCardValidation.cs" />
     <Compile Include="IniFiles.cs" />
     <Compile Include="INIHelper.cs" />
     <Compile Include="Form1.cs">
@@ -78,15 +148,132 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="IntoLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntoLoading.Designer.cs">
+      <DependentUpon>IntoLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginError.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginError.Designer.cs">
       <DependentUpon>LoginError.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mail.Designer.cs">
+      <DependentUpon>Mail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map.Designer.cs">
+      <DependentUpon>Map.cs</DependentUpon>
+    </Compile>
     <Compile Include="MD5.cs" />
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NetworkConnect.cs" />
+    <Compile Include="NetworkSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NetworkSetting.Designer.cs">
+      <DependentUpon>NetworkSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="News.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="News.Designer.cs">
+      <DependentUpon>News.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Obj3DRead.cs" />
+    <Compile Include="PicTran.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandomMenu.Designer.cs">
+      <DependentUpon>RandomMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReconnectServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReconnectServer.Designer.cs">
+      <DependentUpon>ReconnectServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reg.Designer.cs">
+      <DependentUpon>Reg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPasswd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResetPasswd.Designer.cs">
+      <DependentUpon>ResetPasswd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScreenSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenSetting.Designer.cs">
+      <DependentUpon>ScreenSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Store.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Store.Designer.cs">
+      <DependentUpon>Store.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thanks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thanks.Designer.cs">
+      <DependentUpon>Thanks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TipWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipWindow.Designer.cs">
+      <DependentUpon>TipWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateLog.Designer.cs">
+      <DependentUpon>UpdateLog.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgeTip.resx">
+      <DependentUpon>AgeTip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Developer.resx">
+      <DependentUpon>Developer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FastSpawn.resx">
+      <DependentUpon>FastSpawn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.en-US.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,8 +283,29 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="id.resx">
+      <DependentUpon>id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntoLoading.resx">
+      <DependentUpon>IntoLoading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginError.resx">
       <DependentUpon>LoginError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mail.resx">
+      <DependentUpon>Mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map.resx">
+      <DependentUpon>Map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetworkSetting.resx">
+      <DependentUpon>NetworkSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="News.resx">
+      <DependentUpon>News.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,6 +317,37 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReconnectServer.resx">
+      <DependentUpon>ReconnectServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reg.resx">
+      <DependentUpon>Reg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResetPasswd.resx">
+      <DependentUpon>ResetPasswd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenSetting.resx">
+      <DependentUpon>ScreenSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting.en-US.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thanks.resx">
+      <DependentUpon>Thanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TipWindow.resx">
+      <DependentUpon>TipWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateLog.en-US.resx">
+      <DependentUpon>UpdateLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateLog.resx">
+      <DependentUpon>UpdateLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,7 +362,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cursor.cur" />
     <Content Include="favicon 512.ico" />
+    <Content Include="favicon win.ico" />
+    <None Include="Resources\arrow.png" />
+    <None Include="Resources\testpic.png" />
+    <None Include="Resources\none.png" />
+    <None Include="Resources\grass.png" />
+    <None Include="Resources\适龄提示.png" />
+    <None Include="Resources\water.png" />
+    <None Include="Resources\manshinplayer.png" />
+    <None Include="Resources\Cursor.cur" />
     <None Include="Resources\OKTap.png" />
     <None Include="Resources\OKNormal.png" />
     <None Include="Resources\OKChoose.png" />
@@ -145,6 +394,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -60,7 +60,7 @@ namespace manshin
         /// <returns>非零表示成功，零表示失败</returns>
         public static int Write(string section, string key, string value, string filePath)
         {
-            CheckPath(filePath);
+            //CheckPath(filePath);
             return WritePrivateProfileString(section, key, value, filePath);
         }
 
@@ -87,11 +87,11 @@ namespace manshin
             return Write(section, key, null, filePath);
         }
 
-        private static void CheckPath(string path)
-        {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
-            File.Create(filePath);//创建INI文件
-        }
+        //private static void CheckPath(string path)
+        //{
+        //    string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
+        //    File.Create(filePath);//创建INI文件
+        //}
 
     }
 }

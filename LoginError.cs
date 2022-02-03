@@ -16,5 +16,26 @@ namespace manshin
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1.common.regReEnter = 1;
+            this.Close();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Reg form = new Reg();
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ResetPasswd form = new ResetPasswd();
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.ShowDialog();
+        }
     }
 }
